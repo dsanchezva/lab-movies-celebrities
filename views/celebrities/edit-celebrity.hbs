@@ -1,0 +1,26 @@
+<div>
+  <h3>Edit Celebrity</h3>
+  <form action="/celebrities/{{this.findCelebrity._id}}/edit" method="post">
+
+    <label for="name">Name</label>
+    <input type="text" name="name" value="{{this.findCelebrity.name}}" />
+
+    <br />
+    <label for="occupation">Occupation</label>
+    <input
+      type="text"
+      name="occupation"
+      value="{{this.findCelebrity.occupation}}"
+    />
+
+    <br />
+    <label for="catchPhrase">Phrase</label>
+    <input
+      type="text"
+      name="catchPhrase"
+      value="{{this.findCelebrity.catchPhrase}}"
+    />
+    <button>Edit</button>
+  </form>
+
+</div>

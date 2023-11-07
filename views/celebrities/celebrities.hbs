@@ -2,5 +2,9 @@
   <h2>Celebrities</h2>
   {{#each this.allCelebrities}}
     <p>{{this.name}}</p>
+    <a href="/celebrities/{{this._id}}/edit"><button>Editar</button></a>
+    <form action="/celebrities/{{this._id}}/delete" method="post">
+      <button>Delete</button>
+    </form>
   {{/each}}
 </div>
