@@ -58,4 +58,33 @@ router.post("/:id/delete", async (req, res, next) => {
   }
 });
 
+//GET "/movies/:id/edit" => mostrar el formulario para editar la pelicula
+router.get("/:id/edit", async (req, res, next) => {
+  try {
+    const findMovie = await Movie.findById(req.params.id);
+    const allCelebrities = await Celebrity.find();
+    res.render("movies/edit-movie.hbs", {
+      findMovie,
+      allCelebrities,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+//POST "/movies/:id/edit" => mandar los cambios a la DB
+router.post("/:id/edit", async (req, res, next) => {
+  try {
+    await Movie.findByIdAndUpdate(req.params.id, {
+      title: req.body.title,
+      genre: req.body.genre,
+      plot: req.body.plot,
+      cast: req.body.cast,
+    });
+    res.redirect(`/movies/${req.params.id}`);
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
