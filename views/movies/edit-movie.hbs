@@ -15,6 +15,9 @@
 
     <br />
     <select name="cast" multiple>
+      {{#each this.findMovie.cast}}
+        <option value="{{this._id}}" selected disabled>{{this.name}}</option>
+      {{/each}}
       {{#each this.allCelebrities}}
         <option value="{{this._id}}">{{this.name}}</option>
       {{/each}}

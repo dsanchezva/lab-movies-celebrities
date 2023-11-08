@@ -14,7 +14,6 @@ router.get("/create", async (req, res, next) => {
 //POST "/movies/create" => mandar los datos de la pelicula a la DB
 router.post("/create", async (req, res, next) => {
   try {
-    console.log(req.body);
     await Movie.create({
       title: req.body.title,
       genre: req.body.genre,
